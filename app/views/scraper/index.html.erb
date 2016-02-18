@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Welcome to Pricelister!</h1>
+
+  <%= form_tag('/scraper/search', remote: true, id: "searchForm") do %>
+    <%= label_tag 'search_term', "What would you like the price of???"  %>
+    <%= text_field_tag 'search_term', nil, placeholder: "~*~search here~*~"%>
+    <%= submit_tag 'Search' %>
+  <% end %>
+</div>
