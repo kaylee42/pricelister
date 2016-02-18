@@ -3,6 +3,8 @@ class ScraperController < ApplicationController
   end
 
   def search
+    scrape = Scraper.new
+    @responses = scrape.search(params[:search_term])
     respond_to do |format|
       format.js {}
     end

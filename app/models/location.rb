@@ -7,7 +7,7 @@ class Location
   end
 
   def fetch_states
-    scraper = CLLocationScraper.new
+    scraper = ClLocationScraper.new
     states_with_link = scraper.get_states_hash
     output = ""
     states_with_link.each do |state, link|

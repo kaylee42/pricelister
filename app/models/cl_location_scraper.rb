@@ -1,4 +1,4 @@
-class CLLocationScraper
+class ClLocationScraper
 attr_reader :prices, :url, :location
 attr_accessor :html
 def initialize()

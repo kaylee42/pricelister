@@ -1,4 +1,4 @@
-class CLScraper
+class ClScraper
 attr_reader :html, :prices, :url, :location
 def initialize(input, location)
   @location = location

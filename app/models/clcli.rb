@@ -40,11 +40,10 @@ class CLCLI
   end
 
   def search(input)
-    self.clscraper = CLScraper.new(input, location_object.location)
+    self.clscraper = ClScraper.new(input, location_object.location)
     self.ebayscraper = EbayScraper.new(input)
     cl_price_object = clscraper.get_prices
     ebay_object = ebayscraper.get_prices
-    # binding.pry
       if cl_price_object == nil
         puts "Nothing found on Craigslist. Please try again."
       else
