@@ -1,4 +1,7 @@
-$('#response').html("<%= @responses %>")
+  $('#response').html("<ul></ul>")
+<% @responses.each do |response| %>
+  $('#response ul').append("<li><%= response %></li>")
+<% end %>
 
 
 document.getElementById('searchForm').reset()
