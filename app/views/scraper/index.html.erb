@@ -1,7 +1,7 @@
 <div class="container">
   <div class="jumbotron">
     <div class="text-center">
-      <h1>Welcome to Pricelister!</h1>
+      <h1>Welcome to PriceLister</h1>
 
         <%= form_tag('/scraper/search', remote: true, id: "searchForm", class: "form-vertical") do %>
           <fieldset>
@@ -10,7 +10,7 @@
               <%= select_tag "states", options_for_select(@scrape.states), { class: 'form-control' } %>
               </div>
               <div class="col-sm-2">
-                <%= select_tag "market", {}, { class: 'form-control' } %>
+                <%= select_tag "market", options_for_select(["state first!"]), { class: 'form-control' } %>
               </div>
               <div class="col-sm-3">
                  <big><%= label_tag 'search_term', "What would you like the price of?"  %></big>
@@ -34,3 +34,17 @@
 
   </div>
 </div>
+
+<script>
+
+function populateMenu(){
+  $('#states').change(function(){
+    $.ajax({
+        type: "get",
+        url: "<%= scraper_respond_path %>",
+        data: {state: $('#states').val()}
+      })
+  })
+}
+populateMenu()
+</script>

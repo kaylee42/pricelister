@@ -1,7 +1,8 @@
 class Scraper
 attr_reader :markets, :states
 def initialize
-  @markets = {"alabama"=>
+  @markets = {"select state" => "state first!",
+    "alabama"=>
   ["auburn",
    "bham",
    "columbusga",
@@ -420,8 +421,9 @@ def initialize
 
  end
 
-  def search(input)
+  def search(input, market)
     location_object = Location.new
+    location_object.location = market
     clscraper = ClScraper.new(input, location_object.location)
     ebayscraper = EbayScraper.new(input)
     cl_price_object = clscraper.get_prices
