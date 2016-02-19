@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>Welcome to Pricelister!</h1>
+  <div class="jumbotron">
+    <div class="text-center">
+      <h1>Welcome to Pricelister!</h1>
 
   <%= form_tag('/scraper/search', remote: true, id: "searchForm") do %>
     <%= select_tag "states", options_for_select(@scrape.states) %>
@@ -9,7 +11,10 @@
     <%= submit_tag 'Search', id:"search" %>
   <% end %>
 
-  <div id="response">
+      <div class="list-group" id="response">
+
+
+      </div>
 
   </div>
 </div>
