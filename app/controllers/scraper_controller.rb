@@ -1,5 +1,6 @@
 class ScraperController < ApplicationController
   def index
+    @scrape = Scraper.new
   end
 
   def search
