@@ -5,14 +5,19 @@ class ScraperController < ApplicationController
 
   def search
     scrape = Scraper.new
-    @responses = scrape.search(params[:search_term])
+    @responses = scrape.search(params[:search_term], params[:market])
     respond_to do |format|
       format.js {}
     end
   end
 
   def respond
-
+    scrape = Scraper.new
+    state = params[:state]
+    @markets = scrape.markets[state]
+    respond_to do |format|
+      format.js {}
+    end
   end
 
 end

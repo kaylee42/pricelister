@@ -3,13 +3,13 @@
     <div class="text-center">
       <h1>Welcome to Pricelister!</h1>
 
-        <%= form_tag('/scraper/search', remote: true, id: "searchForm") do %>
-          <%= select_tag "states", options_for_select(@scrape.states) %>
-          <%= select_tag "market" %>
-          <%= label_tag 'search_term', "What would you like the price of???"  %>
-          <%= text_field_tag 'search_term', nil, placeholder: "~*~search here~*~"%>
-          <%= submit_tag 'Search', id:"search" %>
-        <% end %>
+  <%= form_tag('/scraper/search', remote: true, id: "searchForm") do %>
+    <%= select_tag "states", options_for_select(@scrape.states) %>
+    <%= select_tag "market", options_for_select(["state first!"]) %>
+    <%= label_tag 'search_term', "What would you like the price of???"  %>
+    <%= text_field_tag 'search_term', nil, placeholder: "~*~search here~*~"%>
+    <%= submit_tag 'Search', id:"search" %>
+  <% end %>
 
       <div class="list-group" id="response">
 
@@ -18,3 +18,17 @@
 
   </div>
 </div>
+
+<script>
+
+function populateMenu(){
+  $('#states').change(function(){
+    $.ajax({
+        type: "get",
+        url: "<%= scraper_respond_path %>",
+        data: {state: $('#states').val()}
+      })
+  })
+}
+populateMenu()
+</script>

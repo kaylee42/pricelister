@@ -1,0 +1,5 @@
+$('#market').html("")
+<% @markets.each do |market| %>
+  var market = "<%= market %>"
+  $('#market').append("<option value='" + market + "'>" + market + "</option>")
+<% end %>
