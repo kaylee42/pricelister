@@ -1,17 +1,20 @@
 <div class="container">
   <div class="jumbotron">
-    <div class="centeralign">
+    <div class="text-center">
       <h1>Welcome to Pricelister!</h1>
 
       <%= form_tag('/scraper/search', remote: true, id: "searchForm") do %>
-        <%= label_tag 'search_term', "What would you like the price of???"  %>
+        <%= label_tag 'search_term', "What would you like the price of?"  %>
         <%= text_field_tag 'search_term', nil, placeholder: "~*~search here~*~"%>
         <%= submit_tag 'Search', id:"search" %>
       <% end %>
+    </div>
 
-      <div id="response">
+      <div class="list-group" id="response">
 
       </div>
-    </div>
+
   </div>
+
+
 </div>

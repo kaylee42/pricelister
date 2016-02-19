@@ -1,6 +1,6 @@
   $('#response').html("<ul></ul>")
 <% @responses.each do |response| %>
-  $('#response ul').append("<li><%= response %></li>")
+  $('#response ul').append('<a href="#" class="list-group-item"><%= response %></a>')
 <% end %>
 
 
