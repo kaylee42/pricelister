@@ -3,13 +3,29 @@
     <div class="text-center">
       <h1>Welcome to Pricelister!</h1>
 
-        <%= form_tag('/scraper/search', remote: true, id: "searchForm") do %>
-          <%= select_tag "states", options_for_select(@scrape.states) %>
-          <%= select_tag "market" %>
-          <%= label_tag 'search_term', "What would you like the price of???"  %>
-          <%= text_field_tag 'search_term', nil, placeholder: "~*~search here~*~"%>
-          <%= submit_tag 'Search', id:"search" %>
-        <% end %>
+        <%= form_tag('/scraper/search', remote: true, id: "searchForm", class: "form-vertical") do %>
+          <fieldset>
+            <div class="row">
+              <div class="col-sm-2">
+              <%= select_tag "states", options_for_select(@scrape.states), { class: 'form-control' } %>
+              </div>
+              <div class="col-sm-2">
+                <%= select_tag "market", {}, { class: 'form-control' } %>
+              </div>
+              <div class="col-sm-3">
+                 <big><%= label_tag 'search_term', "What would you like the price of?"  %></big>
+              </div>
+              <div class="col-sm-5">
+                <div class="input-group">
+                  <%= text_field_tag 'search_term', nil, placeholder: "~*~search here~*~", class: "form-control" %>
+                  <span class="input-group-btn">
+                    <%= submit_tag 'Search', id:"search", class: "btn btn-default" %>
+                  </span>
+                </div>
+              </div>
+            </fieldset>
+          <% end %>
+        </div>
 
       <div class="list-group" id="response">
 
