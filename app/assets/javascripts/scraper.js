@@ -1,5 +1,12 @@
 
 $(function(){
+  insertWave()
+});
+
+
+
+
+
 function buildWave(w, h) {
   const path = document.querySelector('#wave');
   const animation = document.querySelector('#moveTheWave');
@@ -71,5 +78,3 @@ function buildWave(w, h) {
         buildWave(90, 60);
   })
 }
-  insertWave()
-});
